@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {getRecipes} from '../service/recipeFunctions';
-import RecipeInfo from './RecipeInfo';
+import RecipeCard from '../assetComponents/RecipeCard';
 
 
 export default class Recipe extends Component {
@@ -33,7 +33,7 @@ export default class Recipe extends Component {
 
         var recipeList = recipes.map((row, index) => {
             console.log("Recipe list row: ", row);
-            return <li key = {index} > {row.name}, portions: {row.portions} </li>
+            return <RecipeCard key = {index} recipeId = {row.id} title = {row.name} portions= {row.portions} />
         })
 
         

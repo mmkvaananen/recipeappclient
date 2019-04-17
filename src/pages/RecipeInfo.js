@@ -4,7 +4,7 @@ export default class RecipeInfo extends Component {
     render() {
         return (
             <div>
-            re
+            recipeinfo page... to be implemented...
             </div>
         )
     }
