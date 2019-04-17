@@ -24,14 +24,33 @@ export function getRecipes() {
    
 }
 
-function apiCall(options) {
-   return axios(options)
+export function getRecipeById(id){
+    let url = "/api/recipe/recipes"+id;
+    console.log("getRecipeById function url: ", url);
+    var options = {
+        url: url,
+        method: 'GET'
+    }
+
+    return axios(options)
     .then(response => {
-        console.log("getRecipes response from server: ", response);
+        console.log("GetRecipeById response from server: ", response);
         return response;
     })
-    .catch(e => {
-        console.log("getTravels catch virheilmoitus: ", e);
-        return e;
+}
+
+export function getRecipeIngredientsByRecipeId(id) {
+    let url = "/api/recipeingredient/recipeingredients/"+id;
+    console.log("getRecipeIngredientsByRecipeId function url: ", url);
+
+    var options = {
+        url: url,
+        method: 'GET'
+    }
+
+    return axios(options)
+    .then(response => {
+        console.log("GetRecipeIngredientsByRecipeId response from server: ", response);
+        return response;
     })
 }

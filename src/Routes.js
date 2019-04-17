@@ -18,7 +18,7 @@ export default class Routes extends Component {
                         <Route exact path="/" render={(props) => (<Home {...props} />)} />
                         <Route exact path="/home" render={(props) => (<Home {...props} />)} />
                         <Route exact path="/recipe" render={(props) => (<Recipe {...props} />)} />
-                        <Route exact path="/recipe/:recipeid" render={(props) => (<Recipeinfo {...props} />)} />
+                        <Route path="/recipe/:recipeid/:recipename" render={(props) => (<Recipeinfo {...props} />)} />
                         <Route component={PageNotfound} />
                     </Switch>
                 </div>
