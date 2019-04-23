@@ -54,3 +54,46 @@ export function getRecipeIngredientsByRecipeId(id) {
         return response;
     })
 }
+
+export function addNewRecipe(name, servings) {
+    let ownerId = 3; //this should be registered users id number
+
+    let url = "/api/recipe/recipes/" + ownerId;
+
+    let postData = {"name" : name, "portions" : servings}
+
+    var options = {
+        url: url,
+        method: 'POST',
+        data: postData
+    }
+
+    return axios(options)
+    .then(response => {
+        console.log("AddNewRecipe response from server: ", response);
+        return response;
+    })
+
+}
+
+export function addIngredientToRecipe(recipe, ingredient, amount) {
+    
+    let url = "/api/recipeingredient/recipeingredients";
+    console.log("ingredient: ", ingredient);
+    console.log("recipe: ", recipe);
+    console.log("amount: ", amount);
+
+    let postData = {"ingredient" : ingredient, "recipe" : recipe, "amount": amount}
+
+    var options = {
+        url: url,
+        method: 'POST',
+        data: postData
+    }
+
+    return axios(options)
+    .then(response => {
+        console.log("AddIngredientToRecipe's response from server: ", response.data);
+        return response;
+    })
+}
